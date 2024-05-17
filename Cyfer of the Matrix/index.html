@@ -143,6 +143,7 @@ body {
     <div class="operationalFunctions">
         <button id="startButton">Start/Restart</button>
     </div>
+    <p></p>
     <div class="commandFeed">
         <p id="halloText">Hello there</p>
     </div>
@@ -192,7 +193,7 @@ function startFunction() {
     clearButtons();
     generateGrid();
     randomNumber = Math.floor(64 * Math.random());
-    console.log(randomNumber);
+    console.log('randomNumber =' + randomNumber);
     let num = randomNumber;
     let targetButton = document.getElementById(' ' + num);
     targetButton.setAttribute('style', 'background-color: #008000;');
@@ -204,6 +205,7 @@ function startFunction() {
 
 function technoFunction() {
     let technoable = Math.floor(100 * Math.random());
+    console.log('technoable =' + technoable);
     if (technoable == 23) {
         window.open("https://www.youtube.com/@Technoblade");
     }
