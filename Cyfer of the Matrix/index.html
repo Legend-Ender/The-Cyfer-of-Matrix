@@ -137,11 +137,6 @@ body {
     <h3>By Legend Ender935</h3>
     
     <div class="cosmeticFunctions">
-        <p>Please Enter Name</p>
-        <input type="text" name="name" id="name" maxlength="30">
-        <button id="okButton">OK</button>
-        <button id="cancelButton">Cancel</button>
-        <button id="clearButton">Delete</button>
         <button id="helpButton">Rules</button>
         <button id="hideButton">Hide Feed</button>
     </div>
@@ -160,9 +155,6 @@ body {
 'use strict';
 
 let cloningSubject = document.createElement('button');
-let cancel = document.getElementById('cancelButton');
-let clear = document.getElementById('clearButton');
-let ok = document.getElementById('okButton');
 let start = document.getElementById('startButton');
 let help = document.getElementById('helpButton');
 let hide = document.getElementById('hideButton');
@@ -183,31 +175,6 @@ let thePreviousOtherMathPart = -100;
 let randomNumber = -100;
 let previousTargetButtonNum = -100;
 
-
-
-ok.onclick = okFunction;
-function okFunction() {
-
-    if (name1a.value == '') {
-    consoleFeed.innerText = 'Error404';
-    window.close();
-    window.open("https://www.youtube.com/@Technoblade");
-    } else {
-        consoleFeed.innerText = 'Welcome to the Cyfer of Matrix ' + name1a.value + '!';
-    }
-}
-
-cancel.onclick = cancelFunction;
-function cancelFunction() {
-    consoleFeed.innerText = 'Hope to see you again!';
-}
-
-clear.onclick = clearFunction;
-function clearFunction() {
-    name1a.value = '';
-    userOutput = 'Pressed ';
-}
-
 help.onclick = helpFunction;
 function helpFunction() {
     consoleFeed.innerText = 'The aim is to find sequence of moves of a knight on the field such that the knight visits every square exactly once. You can only moves two squares vertically and one square horizontally, or two squares horizontally and one square vertically.';
@@ -221,6 +188,7 @@ function hideFunction() {
 start.onclick = startFunction;
 window.onload = startFunction;
 function startFunction() {
+    technoFunction();
     clearButtons();
     generateGrid();
     randomNumber = Math.floor(64 * Math.random());
@@ -233,12 +201,19 @@ function startFunction() {
     thePreviousOtherMathPart = num%8;
     previousTargetButtonNum = num;
 }
+
+function technoFunction() {
+    let technoable = Math.floor(100 * Math.random());
+    if (technoable == 23) {
+        window.open("https://www.youtube.com/@Technoblade");
+    }
+}
+
 function clearButtons() {
     for (let i = 0; i < 64; i++) {
         document.getElementById(' ' + i).remove(); 
     }  
 }
-
 
 function generateGrid() {
     for (let i = 0; i < 64; i++) {
