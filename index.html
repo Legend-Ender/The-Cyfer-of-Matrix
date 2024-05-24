@@ -204,7 +204,6 @@ window.onload = startFunction;
 
 function startFunction() {
     technoFunction();
-    clearButtons();
     generateGrid();
     generateStart();
 }
@@ -236,6 +235,7 @@ function clearButtons() {
 }
 
 function generateGrid() {
+    clearButtons();
     for (let i = 0; i < 64; i++) {
         generateButtons(i);
     }
