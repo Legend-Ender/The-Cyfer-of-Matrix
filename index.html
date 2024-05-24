@@ -278,7 +278,17 @@ function clickedResult (event) {
         }
     } else {
         blockText.innerText = 'Invalid Move';
-    }  
+    }
+    
+    let allFilledIn = true;
+    for (let i = 0; i < 64; i++) {
+        if (mathSystemToDefineItsPosition[i] != 'FilledIn') {
+            allFilledIn = false;
+        }
+    }
+    if (allFilledIn) {
+        consoleFeed.innerText = 'Victory'; 
+    }
 }    
 </script>
 </body>
