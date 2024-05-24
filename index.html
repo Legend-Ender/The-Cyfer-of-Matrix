@@ -201,10 +201,15 @@ function hideFunction() {
 
 start.onclick = startFunction;
 window.onload = startFunction;
+
 function startFunction() {
     technoFunction();
     clearButtons();
     generateGrid();
+    generateStart();
+}
+
+function generateStart() {
     randomNumber = Math.floor(64 * Math.random());
     console.log('randomNumber = ' + randomNumber);
     let num = randomNumber;
@@ -244,10 +249,6 @@ function generateButtons(num) {
     mathSystemToDefineItsPosition[num] = 'notFilledIn';
 }
 
-
-window.onload = generateGrid;
-
-
 function clickedResult (event) {
     let targetButton = event.target;
     let num = targetButton.id.substring(1);
@@ -279,7 +280,6 @@ function clickedResult (event) {
         blockText.innerText = 'Invalid Move';
     }  
 }    
-    </script>
+</script>
 </body>
-
 </html>
