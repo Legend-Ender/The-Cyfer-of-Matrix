@@ -204,6 +204,7 @@ window.onload = startFunction;
 
 function startFunction() {
     technoFunction();
+    clearButtons();
     generateGrid();
     generateStart();
 }
@@ -230,12 +231,12 @@ function technoFunction() {
 
 function clearButtons() {
     for (let i = 0; i < 64; i++) {
+        if (document.getElementById(' ' + i) != null);
         document.getElementById(' ' + i).remove(); 
-    }  
+    }
 }
 
 function generateGrid() {
-    clearButtons();
     for (let i = 0; i < 64; i++) {
         generateButtons(i);
     }
