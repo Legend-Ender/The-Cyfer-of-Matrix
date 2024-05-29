@@ -282,13 +282,13 @@ function clickedResult (event) {
         blockText.innerText = 'Invalid Move';
     }
     
-    let allFilledIn = false;
+    let allFilledIn = 0;
     for (let i = 0; i < 64; i++) {
         if (mathSystemToDefineItsPosition[i] == 'FilledIn') {
-            allFilledIn = true;
+            allFilledIn++;
         }
     }
-    if (allFilledIn = true) {
+    if (allFilledIn = 64) {
         consoleFeed.innerText = 'Victory';
         console.log('Victory'); 
     }
