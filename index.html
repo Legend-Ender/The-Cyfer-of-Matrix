@@ -260,12 +260,9 @@ function clickedResult (event) {
 
     rowValue = thePreviousActualMathPart - theActualMathPart;
     columnValue = thePreviousOtherMathPart - theOtherMathPart;
-    console.log('row ' + rowValue);
-    console.log('column ' + columnValue);
     finalValue = rowValue * columnValue;
-    console.log('final ' + finalValue);
 
-      if ((finalValue == 2) || (finalValue == -2)) {
+    if ((finalValue == 2) || (finalValue == -2)) {
         if (mathSystemToDefineItsPosition[num] == 'notFilledIn') {
             targetButton.setAttribute('style', 'background-color: #0099ff');
             mathSystemToDefineItsPosition[num] = 'filledIn';
@@ -274,7 +271,7 @@ function clickedResult (event) {
             let previousTargetButton = document.getElementById(' ' + previousTargetButtonNum);
             previousTargetButton.setAttribute('style', 'background-color: goldenrod');
             previousTargetButtonNum = num;
-            console.log(previousTargetButton.id);
+            console.log('previousTargetButton ID' + previousTargetButton.id);
         } else {
             blockText.innerText = 'Invalid Move';
         }
@@ -286,11 +283,12 @@ function clickedResult (event) {
     for (let i = 0; i < 64; i++) {
         if (mathSystemToDefineItsPosition[i] == 'FilledIn') {
             allFilledIn++;
+            console.log('allFilledIn Counter = ' + allFilledIn);
         }
     }
     if (allFilledIn == 64) {
+        targetButton.setAttribute('style', 'background-color: #0099ff');
         consoleFeed.innerText = 'Victory';
-        console.log('Victory'); 
     }
 }    
 </script>
