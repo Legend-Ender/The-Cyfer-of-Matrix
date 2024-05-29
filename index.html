@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Hello World!</title>
+    <title>Knight's Tour</title>
     <meta charset="utf-8">
     <style>
     h1 {
@@ -146,8 +146,8 @@ body {
 </head>
 
 <body id="theOnlyBody">
-    <h1>The Cyfer of Matrix</h1>
-    <h2>Welcome to  the Cyfer of the Matrix</h2>
+    <h1>Knight's Tour</h1>
+    <h2>Welcome to the Knight's Tour</h2>
     <h3>By Legend Ender935</h3>
     <p></p>
     <div class="cosmeticFunctions">
@@ -282,14 +282,15 @@ function clickedResult (event) {
         blockText.innerText = 'Invalid Move';
     }
     
-    let allFilledIn = true;
+    let allFilledIn = false;
     for (let i = 0; i < 64; i++) {
-        if (mathSystemToDefineItsPosition[i] != 'FilledIn') {
-            allFilledIn = false;
+        if (mathSystemToDefineItsPosition[i] == 'FilledIn') {
+            allFilledIn = true;
         }
     }
-    if (allFilledIn) {
-        consoleFeed.innerText = 'Victory'; 
+    if (allFilledIn == true) {
+        consoleFeed.innerText = 'Victory';
+        console.log('Victory'); 
     }
 }    
 </script>
