@@ -271,25 +271,27 @@ function clickedResult (event) {
     }
 
     function checkForLoss() {
-        if (buttonStorage[rowValue + 2 && columnValue + 1] == 'filledIn' && 
-            buttonStorage[rowValue + 2 && columnValue - 1] == 'filledIn' && 
-            buttonStorage[rowValue - 2 && columnValue + 1] == 'filledIn' && 
-            buttonStorage[rowValue - 2 && columnValue - 1] == 'filledIn' && 
-            buttonStorage[rowValue + 1 && columnValue + 2] == 'filledIn' && 
-            buttonStorage[rowValue + 1 && columnValue - 2] == 'filledIn' && 
-            buttonStorage[rowValue - 1 && columnValue + 2] == 'filledIn' && 
-            buttonStorage[rowValue - 1 && columnValue - 2] == 'filledIn') 
-            {
-            let allNotFilledIn = false;
-            for (let i = 0; i < 64; i++) {
-                if (buttonStorage[i] == 'notFilledIn') {
-                    allNotFilledIn = true;
-                    break;
-                }
+        let noAvailibleSpots = false;
+        if (rowValue + 2 && columnValue + 1 == 'filledIn' && 
+            rowValue + 2 && columnValue - 1 == 'filledIn' && 
+            rowValue - 2 && columnValue + 1 == 'filledIn' && 
+            rowValue - 2 && columnValue - 1 == 'filledIn' && 
+            rowValue + 1 && columnValue + 2 == 'filledIn' && 
+            rowValue + 1 && columnValue - 2 == 'filledIn' && 
+            rowValue - 1 && columnValue + 2 == 'filledIn' && 
+            rowValue - 1 && columnValue - 2 == 'filledIn') {
+            noAvailibleSpots = true;
+        }
+        let allNotFilledIn = false;
+        for (let i = 0; i < 64; i++) {
+            if (buttonStorage[i] == 'notFilledIn') {
+                allNotFilledIn = true;
+                break;
             }
-            if (allNotFilledIn) {
-                userLog.innerText = 'You Lose';
-            }
+        }
+        if (allNotFilledIn == true && noAvailibleSpots == true) {
+            targetButton.setAttribute('style', 'background-color: red');
+            userLog.innerText = 'You Lose';
         }
     }
 
@@ -302,7 +304,7 @@ function clickedResult (event) {
             }
         }
         if (allFilledIn) {
-            targetButton.setAttribute('style', 'background-color: #0099ff');
+            targetButton.setAttribute('style', 'background-color: goldenrod');
             userLog.innerText = 'Victory';
         }
     }
