@@ -272,14 +272,14 @@ function clickedResult (event) {
 
     function checkForLoss() {
     let noAvailableSpots = false;
-        if (!(buttonStorage[rowValue + 2]?.[columnValue + 1] == 'filledIn' && 
-              buttonStorage[rowValue + 2]?.[columnValue - 1] == 'filledIn' && 
-              buttonStorage[rowValue - 2]?.[columnValue + 1] == 'filledIn' && 
-              buttonStorage[rowValue - 2]?.[columnValue - 1] == 'filledIn' && 
-              buttonStorage[rowValue + 1]?.[columnValue + 2] == 'filledIn' && 
-              buttonStorage[rowValue + 1]?.[columnValue - 2] == 'filledIn' && 
-              buttonStorage[rowValue - 1]?.[columnValue + 2] == 'filledIn' && 
-              buttonStorage[rowValue - 1]?.[columnValue - 2] == 'filledIn')) {
+        if (buttonStorage[rowValue + 2]?.[columnValue + 1] == 'filledIn' && 
+            buttonStorage[rowValue + 2]?.[columnValue - 1] == 'filledIn' && 
+            buttonStorage[rowValue - 2]?.[columnValue + 1] == 'filledIn' && 
+            buttonStorage[rowValue - 2]?.[columnValue - 1] == 'filledIn' && 
+            buttonStorage[rowValue + 1]?.[columnValue + 2] == 'filledIn' && 
+            buttonStorage[rowValue + 1]?.[columnValue - 2] == 'filledIn' && 
+            buttonStorage[rowValue - 1]?.[columnValue + 2] == 'filledIn' && 
+            buttonStorage[rowValue - 1]?.[columnValue - 2] == 'filledIn') {
             noAvailableSpots = true;
         }
 
