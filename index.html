@@ -271,19 +271,19 @@ function clickedResult (event) {
     }
 
     function checkForLoss() {
-        if (buttonStorage[rowValue + 2][columnValue + 1] === 'filledIn' && 
-            buttonStorage[rowValue + 2][columnValue - 1] === 'filledIn' && 
-            buttonStorage[rowValue - 2][columnValue + 1] === 'filledIn' && 
-            buttonStorage[rowValue - 2][columnValue - 1] === 'filledIn' && 
-            buttonStorage[rowValue + 1][columnValue + 2] === 'filledIn' && 
-            buttonStorage[rowValue + 1][columnValue - 2] === 'filledIn' && 
-            buttonStorage[rowValue - 1][columnValue + 2] === 'filledIn' && 
-            buttonStorage[rowValue - 1][columnValue - 2] === 'filledIn') 
+        if (buttonStorage[rowValue + 2 && columnValue + 1] == 'filledIn' && 
+            buttonStorage[rowValue + 2 && columnValue - 1] == 'filledIn' && 
+            buttonStorage[rowValue - 2 && columnValue + 1] == 'filledIn' && 
+            buttonStorage[rowValue - 2 && columnValue - 1] == 'filledIn' && 
+            buttonStorage[rowValue + 1 && columnValue + 2] == 'filledIn' && 
+            buttonStorage[rowValue + 1 && columnValue - 2] == 'filledIn' && 
+            buttonStorage[rowValue - 1 && columnValue + 2] == 'filledIn' && 
+            buttonStorage[rowValue - 1 && columnValue - 2] == 'filledIn') 
             {
-            let allNotFilledIn = true;
+            let allNotFilledIn = false;
             for (let i = 0; i < 64; i++) {
-                if (buttonStorage[i] !== 'notFilledIn') {
-                    allNotFilledIn = false;
+                if (buttonStorage[i] == 'notFilledIn') {
+                    allNotFilledIn = true;
                     break;
                 }
             }
@@ -293,16 +293,15 @@ function clickedResult (event) {
         }
     }
 
-
     function checkForVictory() {
-        let allFilledIn = 0;
+        let allFilledIn = true;
         for (let i = 0; i < 64; i++) {
-            if (buttonStorage[i] == 'FilledIn') {
-                allFilledIn++;
-                console.log('allFilledIn Counter = ' + allFilledIn);
+            if (buttonStorage[i] == 'notFilledIn') {
+                allFilledIn = false;
+                console.log('allFilledIn' + allFilledIn);
             }
         }
-        if (allFilledIn == 64) {
+        if (allFilledIn) {
             targetButton.setAttribute('style', 'background-color: #0099ff');
             userLog.innerText = 'Victory';
         }
