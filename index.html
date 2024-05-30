@@ -286,12 +286,12 @@ function clickedResult (event) {
         }
 
         let allNotFilledIn = true;
-            for (let i = 0; i < 64; i++) {
-                if (buttonStorage[i] == 'notFilledIn') {
-                    allNotFilledIn = false;
-                    break;
-                }
+        for (let i = 0; i < 64; i++) {
+            if (buttonStorage[i] == 'notFilledIn') {
+                allNotFilledIn = false;
+                break;
             }
+        }
 
         if (!allNotFilledIn && noAvailableSpots) {
             userLog.innerText = 'You Lose';
