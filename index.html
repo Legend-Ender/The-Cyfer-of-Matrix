@@ -271,10 +271,28 @@ function clickedResult (event) {
     }
 
     function checkForLoss() {
-        if () {
-
+        if (buttonStorage[rowValue + 2][columnValue + 1] === 'filledIn' && 
+            buttonStorage[rowValue + 2][columnValue - 1] === 'filledIn' && 
+            buttonStorage[rowValue - 2][columnValue + 1] === 'filledIn' && 
+            buttonStorage[rowValue - 2][columnValue - 1] === 'filledIn' && 
+            buttonStorage[rowValue + 1][columnValue + 2] === 'filledIn' && 
+            buttonStorage[rowValue + 1][columnValue - 2] === 'filledIn' && 
+            buttonStorage[rowValue - 1][columnValue + 2] === 'filledIn' && 
+            buttonStorage[rowValue - 1][columnValue - 2] === 'filledIn') 
+            {
+            let allNotFilledIn = true;
+            for (let i = 0; i < 64; i++) {
+                if (buttonStorage[i] !== 'notFilledIn') {
+                    allNotFilledIn = false;
+                    break;
+                }
+            }
+            if (allNotFilledIn) {
+                userLog.innerText = 'You Lose';
+            }
         }
     }
+
 
     function checkForVictory() {
         let allFilledIn = 0;
