@@ -271,9 +271,7 @@ function clickedResult (event) {
     }
 
     function checkForLoss() {
-    let noAvailableSpots = true;
-
-
+    let noAvailableSpots = false;
         if (!(buttonStorage[rowValue + 2]?.[columnValue + 1] == 'filledIn' && 
               buttonStorage[rowValue + 2]?.[columnValue - 1] == 'filledIn' && 
               buttonStorage[rowValue - 2]?.[columnValue + 1] == 'filledIn' && 
@@ -282,18 +280,17 @@ function clickedResult (event) {
               buttonStorage[rowValue + 1]?.[columnValue - 2] == 'filledIn' && 
               buttonStorage[rowValue - 1]?.[columnValue + 2] == 'filledIn' && 
               buttonStorage[rowValue - 1]?.[columnValue - 2] == 'filledIn')) {
-            noAvailableSpots = false;
+            noAvailableSpots = true;
         }
 
-        let allNotFilledIn = true;
+        let allNotFilledIn = false;
         for (let i = 0; i < 64; i++) {
             if (buttonStorage[i] == 'notFilledIn') {
-                allNotFilledIn = false;
-                break;
+                allNotFilledIn = true;
             }
         }
 
-        if (!allNotFilledIn && noAvailableSpots) {
+        if (allNotFilledIn && noAvailableSpots) {
             userLog.innerText = 'You Lose';
             for (let i = 0; i < 64; i++) {
                 buttonStorage[i].setAttribute('style', 'background-color: red');
