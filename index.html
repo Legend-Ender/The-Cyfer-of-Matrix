@@ -274,33 +274,32 @@ function clickedResult (event) {
     let noAvailableSpots = true;
 
 
-    if (!(buttonStorage[rowValue + 2]?.[columnValue + 1] == 'filledIn' && 
-          buttonStorage[rowValue + 2]?.[columnValue - 1] == 'filledIn' && 
-          buttonStorage[rowValue - 2]?.[columnValue + 1] == 'filledIn' && 
-          buttonStorage[rowValue - 2]?.[columnValue - 1] == 'filledIn' && 
-          buttonStorage[rowValue + 1]?.[columnValue + 2] == 'filledIn' && 
-          buttonStorage[rowValue + 1]?.[columnValue - 2] == 'filledIn' && 
-          buttonStorage[rowValue - 1]?.[columnValue + 2] == 'filledIn' && 
-          buttonStorage[rowValue - 1]?.[columnValue - 2] == 'filledIn')) {
-        noAvailableSpots = false;
-    }
+        if (!(buttonStorage[rowValue + 2]?.[columnValue + 1] == 'filledIn' && 
+              buttonStorage[rowValue + 2]?.[columnValue - 1] == 'filledIn' && 
+              buttonStorage[rowValue - 2]?.[columnValue + 1] == 'filledIn' && 
+              buttonStorage[rowValue - 2]?.[columnValue - 1] == 'filledIn' && 
+              buttonStorage[rowValue + 1]?.[columnValue + 2] == 'filledIn' && 
+              buttonStorage[rowValue + 1]?.[columnValue - 2] == 'filledIn' && 
+              buttonStorage[rowValue - 1]?.[columnValue + 2] == 'filledIn' && 
+              buttonStorage[rowValue - 1]?.[columnValue - 2] == 'filledIn')) {
+            noAvailableSpots = false;
+        }
 
-    let allNotFilledIn = true;
-    for (let i = 0; i < 64; i++) {
-        if (buttonStorage[i] == 'notFilledIn') {
-            allNotFilledIn = false;
-            break;
+        let allNotFilledIn = true;
+            for (let i = 0; i < 64; i++) {
+                if (buttonStorage[i] == 'notFilledIn') {
+                    allNotFilledIn = false;
+                    break;
+                }
+            }
+
+        if (!allNotFilledIn && noAvailableSpots) {
+            userLog.innerText = 'You Lose';
+            for (let i = 0; i < 64; i++) {
+                buttonStorage[i].setAttribute('style', 'background-color: red');
+            }
         }
     }
-
-    if (!allNotFilledIn && noAvailableSpots) {
-        userLog.innerText = 'You Lose';
-        for (let i = 0; i < 64; i++) {
-            buttonStorage[i].setAttribute('style', 'background-color: red');
-        }
-    }
-}
-
 
     function checkForVictory() {
         let allFilledIn = true;
