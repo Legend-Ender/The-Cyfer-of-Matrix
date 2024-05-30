@@ -271,35 +271,43 @@ function clickedResult (event) {
     }
 
     function checkForLoss() {
-        let noAvailibleSpots = false;
-        if (rowValue + 2 && columnValue + 1 == 'filledIn' && 
-            rowValue + 2 && columnValue - 1 == 'filledIn' && 
-            rowValue - 2 && columnValue + 1 == 'filledIn' && 
-            rowValue - 2 && columnValue - 1 == 'filledIn' && 
-            rowValue + 1 && columnValue + 2 == 'filledIn' && 
-            rowValue + 1 && columnValue - 2 == 'filledIn' && 
-            rowValue - 1 && columnValue + 2 == 'filledIn' && 
-            rowValue - 1 && columnValue - 2 == 'filledIn') {
-            noAvailibleSpots = true;
-        }
-        let allNotFilledIn = false;
-        for (let i = 0; i < 64; i++) {
-            if (buttonStorage[i] == 'notFilledIn') {
-                allNotFilledIn = true;
-            }
-        }
-        if (allNotFilledIn == true && noAvailibleSpots == true) {
-            targetButton.setAttribute('style', 'background-color: red');
-            userLog.innerText = 'You Lose';
+    let noAvailableSpots = true;
+
+
+    if (!(buttonStorage[rowValue + 2]?.[columnValue + 1] == 'filledIn' && 
+          buttonStorage[rowValue + 2]?.[columnValue - 1] == 'filledIn' && 
+          buttonStorage[rowValue - 2]?.[columnValue + 1] == 'filledIn' && 
+          buttonStorage[rowValue - 2]?.[columnValue - 1] == 'filledIn' && 
+          buttonStorage[rowValue + 1]?.[columnValue + 2] == 'filledIn' && 
+          buttonStorage[rowValue + 1]?.[columnValue - 2] == 'filledIn' && 
+          buttonStorage[rowValue - 1]?.[columnValue + 2] == 'filledIn' && 
+          buttonStorage[rowValue - 1]?.[columnValue - 2] == 'filledIn')) {
+        noAvailableSpots = false;
+    }
+
+    let allNotFilledIn = true;
+    for (let i = 0; i < 64; i++) {
+        if (buttonStorage[i] == 'notFilledIn') {
+            allNotFilledIn = false;
+            break;
         }
     }
+
+    if (!allNotFilledIn && noAvailableSpots) {
+        userLog.innerText = 'You Lose';
+        for (let i = 0; i < 64; i++) {
+            buttonStorage[i].setAttribute('style', 'background-color: red');
+        }
+    }
+}
+
 
     function checkForVictory() {
         let allFilledIn = true;
         for (let i = 0; i < 64; i++) {
             if (buttonStorage[i] == 'notFilledIn') {
                 allFilledIn = false;
-                console.log('allFilledIn' + allFilledIn);
+                console.log('allFilledIn ' + allFilledIn);
             }
         }
         if (allFilledIn) {
