@@ -295,10 +295,8 @@ function clickedResult (event) {
         if (allNotFilledIn && noAvailableSpots) {
             userLog.innerText = 'You Lose';
             for (let i = 0; i < 64; i++) {
-                if (document.getElementById(' ' + i == 'filledIn')) {
-                    document.getElementById(' ' + i).style.background='red';
-                    console.log('red');
-                }
+                document.getElementById(' ' + i).style.background='red';
+                console.log('red');
             }
         }
     }
