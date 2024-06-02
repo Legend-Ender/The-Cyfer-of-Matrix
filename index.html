@@ -281,19 +281,24 @@ function clickedResult (event) {
             buttonStorage[((rowValue - 1) * 8) + (columnValue + 2)] == 'filledIn' && 
             buttonStorage[((rowValue - 1) * 8) + (columnValue - 2)] == 'filledIn') {
             noAvailableSpots = true;
+            console.log('noAvailableSpots' + noAvailableSpots);
         }
 
         let allNotFilledIn = false;
         for (let i = 0; i < 64; i++) {
             if (buttonStorage[i] == 'notFilledIn') {
                 allNotFilledIn = true;
+                console.log('allNotFilledIn' + allNotFilledIn);
             }
         }
 
         if (allNotFilledIn && noAvailableSpots) {
             userLog.innerText = 'You Lose';
             for (let i = 0; i < 64; i++) {
-                buttonStorage[i].setAttribute('style', 'background-color: red');
+                if (document.getElementById(' ' + i == 'filledIn')) {
+                    document.getElementById(' ' + i).style.background='red';
+                    console.log('red');
+                }
             }
         }
     }
@@ -303,7 +308,6 @@ function clickedResult (event) {
         for (let i = 0; i < 64; i++) {
             if (buttonStorage[i] == 'notFilledIn') {
                 allFilledIn = false;
-                console.log('allFilledIn ' + allFilledIn);
             }
         }
         if (allFilledIn) {
