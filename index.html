@@ -154,9 +154,9 @@ body {
 'use strict';
 
 let cloningSubject = document.createElement('button');
-let start = document.getElementById('startButton');
-let help = document.getElementById('helpButton');
-let hide = document.getElementById('hideButton');
+let cyStart = document.getElementById('cyferStartButton');
+let help = document.getElementById('cyferHelpButton');
+let hide = document.getElementById('cyferHideButton');
 let block = document.getElementById('block');
         block.addEventListener('click', clickedResult);
 let userOutput = 'Pressed ';
@@ -181,7 +181,7 @@ function hideFunction() {
     userLog.innerText = '';
 }
 
-start.onclick = startFunction;
+cyStart.onclick = startFunction;
 window.onload = startFunction;
 
 function startFunction() {
@@ -263,14 +263,14 @@ function clickedResult (event) {
 
     function checkForLoss() {
     let noAvailableSpots = false;
-        if (buttonStorage[((rowValue + 2) * 8) + (columnValue + 1)] == 'filledIn' && 
-            buttonStorage[((rowValue + 2) * 8) + (columnValue - 1)] == 'filledIn' && 
-            buttonStorage[((rowValue - 2) * 8) + (columnValue + 1)] == 'filledIn' && 
-            buttonStorage[((rowValue - 2) * 8) + (columnValue - 1)] == 'filledIn' && 
-            buttonStorage[((rowValue + 1) * 8) + (columnValue + 2)] == 'filledIn' && 
-            buttonStorage[((rowValue + 1) * 8) + (columnValue - 2)] == 'filledIn' && 
-            buttonStorage[((rowValue - 1) * 8) + (columnValue + 2)] == 'filledIn' && 
-            buttonStorage[((rowValue - 1) * 8) + (columnValue - 2)] == 'filledIn') {
+        if ((buttonStorage[((rowValue + 2) * 8) + (columnValue + 1)] == 'filledIn' || rowValue + 2 > 7 || columnValue + 1 > 7) && 
+            (buttonStorage[((rowValue + 2) * 8) + (columnValue - 1)] == 'filledIn' || rowValue + 2 > 7 || columnValue - 1 < 0) && 
+            (buttonStorage[((rowValue - 2) * 8) + (columnValue + 1)] == 'filledIn' || rowValue - 2 < 0 || columnValue + 1 > 7) && 
+            (buttonStorage[((rowValue - 2) * 8) + (columnValue - 1)] == 'filledIn' || rowValue - 2 < 0 || columnValue - 1 < 0) && 
+            (buttonStorage[((rowValue + 1) * 8) + (columnValue + 2)] == 'filledIn' || rowValue + 1 > 7 || columnValue + 2 > 7) && 
+            (buttonStorage[((rowValue + 1) * 8) + (columnValue - 2)] == 'filledIn' || rowValue + 1 > 7 || columnValue - 2 < 0) && 
+            (buttonStorage[((rowValue - 1) * 8) + (columnValue + 2)] == 'filledIn' || rowValue - 1 < 0 || columnValue + 2 > 7) && 
+            (buttonStorage[((rowValue - 1) * 8) + (columnValue - 2)] == 'filledIn' || rowValue - 1 < 0 || columnValue - 2 < 0)) {
             noAvailableSpots = true;
             console.log('noAvailableSpots' + noAvailableSpots);
         }
@@ -307,8 +307,7 @@ function clickedResult (event) {
 
     checkForLoss();
     checkForVictory();
-
-}    
+}
 </script>
 </body>
 </html>
