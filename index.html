@@ -154,7 +154,7 @@ body {
 'use strict';
 
 let cloningSubject = document.createElement('button');
-let cyStart = document.getElementById('cyferStartButton');
+let start = document.getElementById('startButton');
 let help = document.getElementById('helpButton');
 let hide = document.getElementById('hideButton');
 let block = document.getElementById('block');
@@ -181,7 +181,7 @@ function hideFunction() {
     userLog.innerText = '';
 }
 
-cyStart.onclick = startFunction;
+start.onclick = startFunction;
 window.onload = startFunction;
 
 function startFunction() {
